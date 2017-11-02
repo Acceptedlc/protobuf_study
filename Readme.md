@@ -54,14 +54,76 @@ int main() {
 	* 16~2047会占用两个字节
 * 字段限制
 	* singular： 这个field有且仅有一次
-	* repeated： 这个filed可以出现很多次，但是出现的顺序会丢失。如果生命，默认是repeated
+	* repeated： 这个filed可以出现很多次，但是出现的顺序会丢失。
+	* optional: version3 删除了这个，但是默认是这个选项。表示这个field可有可无
 	* reserved: 当删除了某个标签，或者字段名称后，需要将入reserved当中，防止后边维护的人继续使用，造成版本不兼容
 
 	
 ## 数据类型
 
-* [数据类型](https://developers.google.com/protocol-buffers/docs/proto3#scalar)
-* 默认值：反序列化的时候，如果接受到的数据不包含，singular字段，则会使用如下默认值
+* [原始数据类型](https://developers.google.com/protocol-buffers/docs/proto3#scalar)
+* 默认值：
+	* singular： 反序列化，没有对应的值，则会自动生成默认值
+	* repeated： 没有对应的value，会生成一个空数组
+
+### 枚举
+
+```
+{
+	syntax = "proto3";
+
+	package test.enums;
+
+	message SearchRequest {
+	  string query = 1;
+	  int32 page_number = 2;
+	  int32 result_per_page = 3;
+	  enum Corpus {
+	    UNIVERSAL = 0;
+	    WEB = 1;
+	    IMAGES = 2;
+	    LOCAL = 3;
+	    NEWS = 4;
+	    PRODUCTS = 5;
+	    VIDEO = 6;
+	  }
+	  Corpus corpus = 4;
+	}
+}
+
+// 使用
+test::enums::SearchRequest s;
+s.set_corpus(test::enums::SearchRequest_Corpus::SearchRequest_Corpus_LOCAL);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
