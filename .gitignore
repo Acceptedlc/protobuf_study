@@ -1,1 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
+
+.idea/
+build/
+cmake-build-debug/
+out/
+!src/
+!proto_file/
+!CMakeLists.txt
+!Readme.md
+
