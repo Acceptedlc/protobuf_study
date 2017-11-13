@@ -4,8 +4,10 @@
 build/
 cmake-build-debug/
 out/
+node_modules/
+.vscode
+build
 !src/
 !proto_file/
 !CMakeLists.txt
 !Readme.md
-

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package eci.protobuf;
+
+message Image {
+
+  message File {
+    string path = 1;
+    int32 band = 2;
+  }
+
+  float cloudCover = 1;
+  repeated File files = 2;
+  int32 index = 3;
+  uint64 ImageTime = 4; 
+}

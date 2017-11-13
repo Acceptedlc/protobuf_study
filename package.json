@@ -1,0 +1,25 @@
+{
+  "name": "protobuf_study",
+  "version": "1.0.0",
+  "description": "* 优点 \t* 传输效率高，Protocol Buffer序列化后的数据要远小于json \t* 可维护性高 \t\t* Protocol Buffer可以直接反序列化为class。 \t\t* Protocal Buffer有明确的声明文件，不同团队之间可以基于生命文件进行沟通。JSON格式及其灵活，一方修改，可能其他方面并不知道。在工程的扩展过程中野蛮生长可能性极大。 \t\t* Protocal Buffer提供了向下兼容的方案 * 缺点： \t* 数据本身的可读性比较差，调试起来不是很方便 * 其他 \t* 性能方面，不同的实现方案差异比较大，需要具体分析 \t* 可用性方面，两种方案资料都比较丰富，现存的库也比较丰富",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Acceptedlc/protobuf_study.git"
+  },
+  "author": "lichao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acceptedlc/protobuf_study/issues"
+  },
+  "homepage": "https://github.com/Acceptedlc/protobuf_study#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.51"
+  },
+  "dependencies": {
+    "google-protobuf": "^3.4.0"
+  }
+}
