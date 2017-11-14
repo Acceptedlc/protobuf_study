@@ -7,9 +7,10 @@ include_directories(../out)
 
 file(GLOB SRC
         ../out/*.cc)
-
 add_executable(main main.cc ${SRC})
 target_link_libraries(main ${PROTOBUF_LIBRARIES})
+
+message(${PROTOBUF_LIBRARIES})
 
 
 
