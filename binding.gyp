@@ -7,8 +7,10 @@
                 "<!@(find out -name \*.cc -print)"
             ],
             "include_dirs" : [
-                "<!(node -e \"require('nan')\")"
+                "<!(node -e \"require('nan')\")",
+                "<!(pwd)/vender"
             ],
+            
             "cflags": ["-std=c++11", "-rtti"],
             "conditions": [
                 ['OS == "mac"', {

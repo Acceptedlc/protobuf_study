@@ -1,25 +1,36 @@
 #include <iostream>
 #include <cstdint>
 
+#include <rapidjson/document.h>
 #include <nan.h>
 #include "../out/image.pb.h"
 #include "../out/action.pb.h"
 
-void Method(const Nan::FunctionCallbackInfo<v8::Value>& info) {
-  char* buffer = (char*) node::Buffer::Data(info[0]->ToObject());
-  int length = node::Buffer::Length(info[0]->ToObject());
-  std::string s(buffer,length);
+NAN_METHOD(Proro) {
 
-  eci::protobuf::Action action;
-  action.ParseFromString(s);
+  v8::Local<v8::Array> input = v8::Local<v8::Array>::Cast(info[0]);
+  unsigned int num_locations = input->Length();
+  for (unsigned int i = 0; i < num_locations; i++) {
+    char* buffer =  (char*) node::Buffer::Data(input->Get(i));
+    int length = node::Buffer::Length(input->Get(i)); 
+    std::string s(buffer,length);
+    eci::protobuf::Action action;
+    action.ParseFromString(s);
+    std::cout << action.functiontype() << std::endl;
+  }
+}
 
-  std::cout << action.DebugString() << std::endl;
-
+NAN_METHOD(Json) {
+  std::string compute_json = std::string(*(v8::String::Utf8Value(info[0]->ToString())));
+  rapidjson::Document d;
+  d.Parse(compute_json.data());
+  for (auto& v : d.GetArray())
+    printf("%s \n ", v.GetObject()["functionType"].GetString());
 }
 
 void Init(v8::Local<v8::Object> exports) {
-  exports->Set(Nan::New("hello").ToLocalChecked(),
-               Nan::New<v8::FunctionTemplate>(Method)->GetFunction());
+  Nan::SetMethod(exports, "proto", Proro);
+  Nan::SetMethod(exports, "json", Json);
 }
 
-NODE_MODULE(hello, Init)
+NODE_MODULE(proto, Init)
