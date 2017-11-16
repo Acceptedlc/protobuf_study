@@ -23,16 +23,18 @@ console.log(action2.toObject());
 
 
 console.log()
+console.log("test1")
+let test1 = new TestProro.Test1();
+test1.setId(980);
+console.log(test1.serializeBinary());
+
+
+console.log()
 console.log("test2")
 let test = new TestProro.Test2();
 test.setStr("testing");
 console.log(test.serializeBinary());
 
-console.log()
-console.log("test1")
-let test1 = new TestProro.Test1();
-test1.setId(980);
-console.log(test1.serializeBinary());
 
 console.log()
 console.log("test3")
