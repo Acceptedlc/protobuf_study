@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package eci.protobuf;
+
+message Action {
+  message RefArgument {
+    int32 index = 1; // 第几个参数
+    int32 argumentIndex = 2; // 引用scope当中第几个原作
+  }
+
+  enum FunctionType {
+    UNKNOW = 0;
+    SUM = 1;
+    SUBTRACT = 2;
+    DIVIDE = 3;
+    MULTIPLY = 4;
+    WHERE = 5;
+    EQ = 6;
+    FOCALMAX = 7;
+    FOCALMIN = 8;
+    FOCALMEAN = 9;
+    FOCALMEDIAN = 10;
+  }
+
+  int32 index = 1;
+  FunctionType functionType = 2;
+  repeated RefArgument refArgs = 3;
+}
