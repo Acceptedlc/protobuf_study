@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message Test1
+{
+    int32 id = 1;
+}
+
+message Test2
+{
+  string str = 2;
+}
+
+message Test3
+{
+  Test1 c = 3;
+}
