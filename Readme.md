@@ -277,7 +277,8 @@ NAN_METHOD(Proro) {
 这里有一个有趣的地方，在Node当中，是不允许worker线程访问v8的数据的。如果，想要获得v8当中的数据，只能进行一次copy，将副本传递到子线程当中。这样做有好有怀，不用考虑太多的同步问题，坏处则是，如果worker的input比较庞大，比如一张图片，那么这个拷贝的操作就会成为性能瓶颈，这个时候Buffer就会成为一个很好的媒介，如上所示**node::Buffer::Data**可以获得一个数组的指针，这个指针可以直接传递到worker线程，也就避免了数据拷贝来拷贝去的开销
 
 
-<h3 id="6.1">性能评估之Google自吹自擂</h34> 
+<h3 id="6.1">性能评估之Google自吹自擂</h3> 
+
 
 ![序列化数据size](http://chart.apis.google.com/chart?chtt=length&chf=c||lg||0||FFFFFF||1||76A4FB||0|bg||s||EFEFEF&chs=689x430&chd=t:207.0,211.0,211.0,226.0,231.0,231.0,264.0,264.0,300.0,353.0,359.0,370.0,378.0,399.0,419.0,448.0,465.0,470.0,475.0,475.0,526.0,919.0,2024.0&chds=0,2226.4&chxt=y&chxl=0:|scala|java|hessian|stax/woodstox|stax/aalto|json/google-gson|json/jackson-databind|protostuff-json|javolution xmlformat|xstream (stax with conv)|json (jackson)|JsonMarshaller|protostuff-numeric-json|thrift|binaryxml/FI|sbinary|java (externalizable)|protobuf|activemq protobuf|kryo|avro-specific|avro-generic|kryo-optimized&chm=N *f*,000000,0,-1,10&lklk&chdlp=t&chco=660000|660033|660066|660099|6600CC|6600FF|663300|663333|663366|663399|6633CC|6633FF|666600|666633|666666&cht=bhg&chbh=10&nonsense=aaa.png' /> "序列化数据size")
 
