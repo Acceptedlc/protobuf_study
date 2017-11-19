@@ -5,12 +5,16 @@ message Test1
   uint32 id = 1;
 }
 
-message Test2
-{
-  string str = 2;
+message Test2 {
+  sint32 id = 1;
 }
 
 message Test3
 {
-  Test1 c = 3;
+  string str = 2;
+}
+
+message Test4
+{
+  Test1 c = 2;
 }
