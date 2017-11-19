@@ -287,7 +287,8 @@ NAN_METHOD(Proro) {
 ![反序列化](http://chart.apis.google.com/chart?chtt=timeDeserializeAndCheckAllFields&chf=c||lg||0||FFFFFF||1||76A4FB||0|bg||s||EFEFEF&chs=689x430&chd=t:3043.0035,3998.4815,4308.2,4355.6565,4371.6045,4584.8715,4779.31,4924.946,6084.47,7185.3925,7366.9585,7948.7375,8082.8465,10567.319,10575.581,12161.0625,14528.3345,21082.57,26235.771,41115.133,71573.7965&chds=0,78731.17615&chxt=y&chxl=0:|java|JsonMarshaller|xstream (stax with conv)|hessian|binaryxml/FI|stax/woodstox|json/jackson-databind|javolution xmlformat|stax/aalto|thrift|protostuff-json|protostuff-numeric-json|json (jackson)|activemq protobuf|avro-generic|sbinary|protobuf|avro-specific|kryo|kryo-optimized|java (externalizable)&chm=N *f*,000000,0,-1,10&lklk&chdlp=t&chco=660000|660033|660066|660099|6600CC|6600FF|663300|663333|663366|663399|6633CC|6633FF|666600|666633|666666&cht=bhg&chbh=10&nonsense=aaa.png' /> "反序列化")
 
 
-<h3 id="6.2">Pb VS Json</h34> 
+<h3 id="6.2">Pb VS Json</h3> 
+
 
 * 优点
 	* 传输效率高，Protocol Buffer序列化后的数据要远小于json
